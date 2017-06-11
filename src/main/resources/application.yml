@@ -1,0 +1,24 @@
+server:
+  port: 80
+  session:
+    timeout: 30
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: Moshoukknd1012.
+#    key-store-type: PKCS12
+#    key-alias: tomcat
+
+logging:
+  config: classpath:config/logback-spring.xml
+
+spring:
+    freemarker:
+      allow-request-override: false
+      cache: false
+      check-template-location: true
+      charset: UTF-8
+      content-type: text/html
+      expose-request-attributes: false
+      expose-session-attributes: false
+      expose-spring-macro-helpers: false
+ 

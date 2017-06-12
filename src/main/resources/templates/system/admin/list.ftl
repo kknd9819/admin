@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/resources/js/list.js"></script>
 <script type="text/javascript">
 $(function() {
-	<@flash_message />
+	[@flash_message /]
 });
 </script>
 </head>

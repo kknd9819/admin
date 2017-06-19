@@ -1,11 +1,12 @@
 package com.zz.model.basic.dao.annotation;
 
-import com.zz.util.shengyuan.CamelCaseUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.shengyuan.tools.util.CamelCaseUtils;
 
 
 

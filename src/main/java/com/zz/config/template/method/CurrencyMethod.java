@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.zz.util.shengyuan.Setting;
+import com.zz.util.Setting;
 
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateBooleanModel;

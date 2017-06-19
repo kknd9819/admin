@@ -1,9 +1,10 @@
 package com.zz.model.basic.model;
 
-import com.zz.util.shengyuan.ResourceUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import cn.shengyuan.tools.util.ResourceUtils;
 
 
 /**

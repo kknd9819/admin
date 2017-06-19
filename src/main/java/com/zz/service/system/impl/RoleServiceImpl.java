@@ -8,8 +8,10 @@ import com.zz.model.RoleAuthority;
 import com.zz.model.basic.model.Page;
 import com.zz.model.basic.service.impl.BaseServiceImpl;
 import com.zz.service.system.RoleService;
-import com.zz.util.shengyuan.Pageable;
-import com.zz.util.shengyuan.StringUtil;
+import com.zz.util.Pageable;
+
+import cn.shengyuan.tools.util.StringUtil;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -104,5 +106,6 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, Long> implements Role
 	public List<Role> findRoleByAdminId(Long id) {
 		return roleDao.findRoleByAdminId(id);
 	}
+
 	
 }

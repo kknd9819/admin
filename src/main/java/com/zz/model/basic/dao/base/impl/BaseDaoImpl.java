@@ -14,9 +14,11 @@ import com.zz.model.basic.dao.dialect.Dialect;
 import com.zz.model.basic.dao.jdbc.SpringJDBCTemplate;
 import com.zz.model.basic.model.Order;
 import com.zz.model.basic.model.Page;
-import com.zz.util.shengyuan.CamelCaseUtils;
-import com.zz.util.shengyuan.ReflectionUtil;
-import com.zz.util.shengyuan.StringUtil;
+
+import cn.shengyuan.tools.util.CamelCaseUtils;
+import cn.shengyuan.tools.util.ReflectionUtil;
+import cn.shengyuan.tools.util.StringUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

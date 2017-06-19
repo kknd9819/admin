@@ -1,13 +1,11 @@
 package com.zz.controller.system;
 
 
-import com.zz.controller.BaseController;
-import com.zz.model.Admin;
-import com.zz.model.basic.model.Message;
-import com.zz.model.basic.model.Page;
-import com.zz.service.system.AdminService;
-import com.zz.service.system.RoleService;
-import com.zz.util.shengyuan.Pageable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -17,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import com.zz.controller.BaseController;
+import com.zz.model.Admin;
+import com.zz.model.basic.model.Message;
+import com.zz.model.basic.model.Page;
+import com.zz.service.system.AdminService;
+import com.zz.service.system.RoleService;
+import com.zz.util.Pageable;
 
 /**
  * 后台管理员controller

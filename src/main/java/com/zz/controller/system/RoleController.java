@@ -7,7 +7,7 @@ import com.zz.model.basic.model.Message;
 import com.zz.model.basic.model.Page;
 import com.zz.service.system.MenuService;
 import com.zz.service.system.RoleService;
-import com.zz.util.shengyuan.Pageable;
+import com.zz.util.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

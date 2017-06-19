@@ -13,8 +13,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.zz.util.shengyuan.FreemarkerUtils;
-
+import cn.shengyuan.tools.util.FreemarkerUtils;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateException;

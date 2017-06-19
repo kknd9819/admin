@@ -16,8 +16,8 @@ import org.apache.commons.lang.StringUtils;
 
 import com.zz.model.basic.model.Order;
 import com.zz.model.basic.model.Order.Direction;
-import com.zz.util.shengyuan.FreemarkerUtils;
 
+import cn.shengyuan.tools.util.FreemarkerUtils;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;

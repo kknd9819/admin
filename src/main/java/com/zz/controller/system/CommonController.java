@@ -5,11 +5,20 @@
  */
 package com.zz.controller.system;
 
-import com.google.code.kaptcha.Constants;
-import com.google.code.kaptcha.Producer;
-import com.zz.service.system.RSAService;
-import com.zz.util.shengyuan.StringUtil;
-import com.zz.util.shengyuan.aes.AES64;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.interfaces.RSAPublicKey;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,18 +27,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
 
-import javax.annotation.Resource;
-import javax.imageio.ImageIO;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.interfaces.RSAPublicKey;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.code.kaptcha.Constants;
+import com.google.code.kaptcha.Producer;
+import com.zz.service.system.RSAService;
+
+import cn.shengyuan.tools.util.StringUtil;
+import cn.shengyuan.tools.util.AES.AES64;
 
 /**
  * Controller - 共用

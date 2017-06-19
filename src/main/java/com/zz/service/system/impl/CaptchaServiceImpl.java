@@ -2,7 +2,8 @@ package com.zz.service.system.impl;
 
 
 import com.zz.service.system.CaptchaService;
-import com.zz.util.shengyuan.Setting.CaptchaType;
+import com.zz.util.Setting.CaptchaType;
+
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

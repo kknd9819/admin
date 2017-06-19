@@ -1,7 +1,8 @@
 package com.zz.util;
 
-import com.zz.util.shengyuan.config.CommonAttributes;
 import org.apache.commons.lang.time.DateUtils;
+
+import cn.shengyuan.tools.config.CommonAttributes;
 
 import java.beans.PropertyEditorSupport;
 import java.text.ParseException;

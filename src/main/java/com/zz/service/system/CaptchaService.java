@@ -2,7 +2,7 @@ package com.zz.service.system;
 
 
 
-import com.zz.util.shengyuan.Setting;
+import com.zz.util.Setting;
 
 import java.awt.image.BufferedImage;
 

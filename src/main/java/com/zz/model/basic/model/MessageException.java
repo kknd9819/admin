@@ -1,7 +1,6 @@
 package com.zz.model.basic.model;
 
-
-import com.zz.util.shengyuan.ResourceUtils;
+import cn.shengyuan.tools.util.ResourceUtils;
 
 /**
  * 消息类异常

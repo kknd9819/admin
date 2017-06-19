@@ -5,7 +5,9 @@ import com.zz.dao.admin.AdminDao;
 import com.zz.model.Admin;
 import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
 import com.zz.model.vo.AdminRoleAuthority;
-import com.zz.util.shengyuan.StringUtil;
+
+import cn.shengyuan.tools.util.StringUtil;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

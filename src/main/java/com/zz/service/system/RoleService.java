@@ -5,7 +5,7 @@ package com.zz.service.system;
 import com.zz.model.Role;
 import com.zz.model.basic.model.Page;
 import com.zz.model.basic.service.BaseService;
-import com.zz.util.shengyuan.Pageable;
+import com.zz.util.Pageable;
 
 import java.util.List;
 import java.util.Set;

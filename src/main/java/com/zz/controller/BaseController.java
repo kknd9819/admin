@@ -3,9 +3,11 @@ package com.zz.controller;
 
 import com.zz.model.basic.model.Message;
 import com.zz.util.DateEditor;
-import com.zz.util.shengyuan.DateUtil;
-import com.zz.util.shengyuan.StringUtil;
-import com.zz.util.shengyuan.WebToolKit;
+
+import cn.shengyuan.tools.util.DateUtil;
+import cn.shengyuan.tools.util.StringUtil;
+import cn.shengyuan.tools.util.WebToolKit;
+
 import org.apache.batik.transcoder.Transcoder;
 import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
@@ -62,7 +64,7 @@ public class BaseController extends BasePathController {
     protected static final Message SUCCESS_MESSAGE = Message.success("操作成功");
 
     /** "瞬时消息"属性名称 */
-    public static final String FLASH_MESSAGE_ATTRIBUTE_NAME = "cn.shengyuan.yun.admin.web.template.directive.FlashMessageDirective.FLASH_MESSAGE";
+    public static final String FLASH_MESSAGE_ATTRIBUTE_NAME = "com.zz.config.template.directive.FlashMessageDirective.FLASH_MESSAGE";
 
     /**
      * 添加瞬时消息

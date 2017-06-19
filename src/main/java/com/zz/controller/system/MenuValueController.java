@@ -7,7 +7,9 @@ import com.zz.model.MenuValue;
 import com.zz.model.basic.model.Message;
 import com.zz.service.system.MenuService;
 import com.zz.service.system.MenuValueService;
-import com.zz.util.shengyuan.StringUtil;
+
+import cn.shengyuan.tools.util.StringUtil;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

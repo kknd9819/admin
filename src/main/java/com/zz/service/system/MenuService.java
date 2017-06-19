@@ -6,7 +6,7 @@ import com.zz.model.Menu;
 import com.zz.model.basic.model.Page;
 import com.zz.model.basic.service.BaseService;
 import com.zz.model.vo.MenuMenuValue;
-import com.zz.util.shengyuan.Pageable;
+import com.zz.util.Pageable;
 
 import java.util.List;
 

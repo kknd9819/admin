@@ -10,7 +10,9 @@ import javax.annotation.Resource;
 
 import com.zz.model.basic.dao.dialect.Dialect;
 import com.zz.model.basic.dao.jdbc.SpringJDBCTemplate;
-import com.zz.util.shengyuan.StringUtil;
+
+import cn.shengyuan.tools.util.StringUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

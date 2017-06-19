@@ -5,8 +5,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.zz.util.shengyuan.ResourceUtils;
-
+import cn.shengyuan.tools.util.ResourceUtils;
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;

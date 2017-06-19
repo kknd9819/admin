@@ -1,1 +1,2 @@
 mvn install:install-file -Dfile=F:/kaptcha-2.3.2.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3.2 -Dpackaging=jar
+mvn install:install-file -Dfile=F:/sy-tools-1.0.0-SNAPSHOT.jar -DgroupId=cn.shengyuan.projects -DartifactId=sy-tools -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar

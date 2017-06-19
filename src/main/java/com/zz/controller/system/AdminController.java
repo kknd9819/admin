@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zz.controller.BaseController;
-import com.zz.model.Admin;
+import com.zz.model.admin.Admin;
 import com.zz.model.basic.model.Message;
 import com.zz.model.basic.model.Page;
 import com.zz.service.system.AdminService;

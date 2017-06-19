@@ -1,28 +1,28 @@
 package com.zz.dao.admin.impl;
 
-
-import com.zz.dao.admin.AdminDao;
-import com.zz.model.Admin;
-import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
-import com.zz.model.vo.AdminRoleAuthority;
-
-import cn.shengyuan.tools.util.StringUtil;
-
-import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
+import com.zz.dao.admin.AdminDao;
+import com.zz.model.admin.Admin;
+import com.zz.model.admin.vo.AdminRoleAuthority;
+import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
+
+import cn.shengyuan.tools.util.StringUtil;
+
 /**
  * 后台管理员持久层实现
+ * 
  * @Date 2014-12-29
  * @author 欧志辉
  * @version 1.0
  */
 @Repository("adminDaoImpl")
 public class AdminDaoImpl extends BaseDaoImpl<Admin, Long> implements AdminDao {
-	
+
 	@Override
 	public List<Admin> findByUsername(String username) {
 		if (StringUtil.isEmpty(username)) {
@@ -37,9 +37,9 @@ public class AdminDaoImpl extends BaseDaoImpl<Admin, Long> implements AdminDao {
 	@Override
 	public List<Admin> findByRoleCode(List<String> roleCodes) {
 		StringBuilder sqlSb = new StringBuilder("select a.* from xx_admin a ");
-		sqlSb.append("left join xx_admin_role ra on a.id = ra.admins left join xx_role r "); 
+		sqlSb.append("left join xx_admin_role ra on a.id = ra.admins left join xx_role r ");
 		sqlSb.append("on r.id = ra.roles where 1 = 1");
-		Map<String,Object> paramMap = new HashMap<String,Object>();
+		Map<String, Object> paramMap = new HashMap<String, Object>();
 		if (roleCodes != null && roleCodes.size() > 0) {
 			sqlSb.append(" and r.code in(:roleCodes)");
 			paramMap.put("roleCodes", roleCodes);

@@ -1,17 +1,18 @@
 package com.zz.dao.admin.impl;
 
-
-import com.zz.dao.admin.RoleDao;
-import com.zz.model.Role;
-import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
-import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
+import com.zz.dao.admin.RoleDao;
+import com.zz.model.admin.Role;
+import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
+
 /**
  * 角色持久层实现
+ * 
  * @Date 2014-12-29
  * @author 欧志辉
  * @version 1.0

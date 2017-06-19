@@ -1,16 +1,11 @@
 package com.zz.controller.system;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.zz.controller.BaseController;
-import com.zz.model.Menu;
-import com.zz.model.MenuValue;
-import com.zz.model.basic.model.Message;
-import com.zz.model.vo.MenuMenuValue;
-import com.zz.service.system.MenuService;
-import com.zz.service.system.MenuValueService;
-import com.zz.util.Pageable;
-
-import cn.shengyuan.tools.util.StringUtil;
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,14 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.zz.controller.BaseController;
+import com.zz.model.admin.Menu;
+import com.zz.model.admin.MenuValue;
+import com.zz.model.admin.vo.MenuMenuValue;
+import com.zz.model.basic.model.Message;
+import com.zz.service.system.MenuService;
+import com.zz.service.system.MenuValueService;
+import com.zz.util.Pageable;
+
+import cn.shengyuan.tools.util.StringUtil;
 
 /**
  * 菜单controller
+ * 
  * @Date 2014-12-31
  * @author 欧志辉
  * @version 1.0
@@ -37,32 +38,34 @@ public class MenuController extends BaseController {
 
 	@Resource(name = "menuServiceImpl")
 	private MenuService menuService;
-	
+
 	@Resource(name = "menuValueServiceImpl")
 	private MenuValueService menuValueService;
-	
+
 	/**
 	 * 分页查询菜单列表
+	 * 
 	 * @param pageable
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Pageable pageable, ModelMap model) {
-		
+
 		model.addAttribute("page", menuService.findRootsForPage(pageable));
 		return "/system/menu/list";
 	}
-	
+
 	/**
 	 * 查找菜单子类
+	 * 
 	 * @param id
 	 * @return Map<String, Object>
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/zllist", method = RequestMethod.GET)
 	public Map<String, Object> zllist(Long id) {
-		
+
 		Map<String, Object> data = new HashMap<String, Object>();
 		List<MenuMenuValue> menus = menuService.findChildren(id);
 		data.put("message", SUCCESS_MESSAGE);
@@ -72,6 +75,7 @@ public class MenuController extends BaseController {
 
 	/**
 	 * 跳转到菜单添加页面
+	 * 
 	 * @param model
 	 * @return String
 	 */
@@ -83,6 +87,7 @@ public class MenuController extends BaseController {
 
 	/**
 	 * 新增菜单保存
+	 * 
 	 * @param menu
 	 * @param vName
 	 * @param parentId
@@ -93,7 +98,7 @@ public class MenuController extends BaseController {
 	public String save(Menu menu, String vName, Long parentId, RedirectAttributes redirectAttributes) {
 		menu.setParent(parentId);
 		MenuValue menuValue = new MenuValue();
-		if(!StringUtil.isEmpty(vName)){
+		if (!StringUtil.isEmpty(vName)) {
 			if (menuValueService.nameExists(menu.getMenuValue(), vName)) {
 				return ERROR_VIEW;
 			}
@@ -103,11 +108,11 @@ public class MenuController extends BaseController {
 			Long menuValueId = menuValueService.save(menuValue);
 			menu.setMenuValue(menuValueId);
 		}
-		if(parentId != null){
+		if (parentId != null) {
 			Menu parentMenu = menuService.get(parentId);
 			menu.setFullName(parentMenu.getFullName() + menu.getName());
-			menu.setGrade(parentMenu.getGrade()+1);
-		}else{
+			menu.setGrade(parentMenu.getGrade() + 1);
+		} else {
 			menu.setFullName(menu.getName());
 			menu.setGrade(0);
 		}
@@ -118,6 +123,7 @@ public class MenuController extends BaseController {
 
 	/**
 	 * 跳转到编辑菜单页面
+	 * 
 	 * @param id
 	 * @param model
 	 * @param pageable
@@ -134,6 +140,7 @@ public class MenuController extends BaseController {
 
 	/**
 	 * 更新菜单
+	 * 
 	 * @param menu
 	 * @param vName
 	 * @param valueId
@@ -145,9 +152,9 @@ public class MenuController extends BaseController {
 	public String update(Menu menu, String vName, Long valueId, Long parentId, RedirectAttributes redirectAttributes) {
 		Menu m = menuService.get(menu.getId());
 		m.setParent(parentId);
-		
+
 		if (!StringUtil.isEmpty(vName)) {
-			if(valueId == null){
+			if (valueId == null) {
 				MenuValue pmenuValue = new MenuValue();
 				if (menuValueService.nameExists(valueId, vName)) {
 					return ERROR_VIEW;
@@ -157,7 +164,7 @@ public class MenuController extends BaseController {
 				pmenuValue.setvName(vName);
 				Long menuValueId = menuValueService.save(pmenuValue);
 				menu.setMenuValue(menuValueId);
-			}else{
+			} else {
 				MenuValue menuValue = menuValueService.get(valueId);
 				if (menuValue == null) {
 					return ERROR_VIEW;
@@ -171,7 +178,7 @@ public class MenuController extends BaseController {
 				menu.setMenuValue(valueId);
 			}
 		}
-		
+
 		if (m.getParent() != null) {
 			Menu parent = menuService.get(m.getParent());
 			if (parent.equals(m)) {
@@ -187,9 +194,9 @@ public class MenuController extends BaseController {
 		return "redirect:list.jhtml";
 	}
 
-
 	/**
 	 * 删除菜单
+	 * 
 	 * @param id
 	 * @param vid
 	 * @return Message
@@ -206,7 +213,7 @@ public class MenuController extends BaseController {
 			return Message.error("菜单包含子菜单，不可以删除");
 		}
 		menuService.delete(id);
-		if(vid != null) {
+		if (vid != null) {
 			menuValueService.delete(vid);
 		}
 		return SUCCESS_MESSAGE;

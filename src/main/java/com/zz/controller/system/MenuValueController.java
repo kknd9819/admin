@@ -1,14 +1,9 @@
 package com.zz.controller.system;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import com.zz.controller.BaseController;
-import com.zz.model.Menu;
-import com.zz.model.MenuValue;
-import com.zz.model.basic.model.Message;
-import com.zz.service.system.MenuService;
-import com.zz.service.system.MenuValueService;
-
-import cn.shengyuan.tools.util.StringUtil;
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,13 +12,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import com.zz.controller.BaseController;
+import com.zz.model.admin.Menu;
+import com.zz.model.admin.MenuValue;
+import com.zz.model.basic.model.Message;
+import com.zz.service.system.MenuService;
+import com.zz.service.system.MenuValueService;
 
+import cn.shengyuan.tools.util.StringUtil;
 
 /**
  * 菜单权限值controller
+ * 
  * @Date 2014-01-03
  * @author 欧志辉
  * @version 1.0
@@ -37,11 +37,14 @@ public class MenuValueController extends BaseController {
 
 	@Resource(name = "menuServiceImpl")
 	private MenuService menuService;
-	
+
 	/**
 	 * 检查菜单值是否唯一
-	 * @param id 菜单权限主键
-	 * @param vName 菜单权限值
+	 * 
+	 * @param id
+	 *            菜单权限主键
+	 * @param vName
+	 *            菜单权限值
 	 * @return
 	 */
 	@ResponseBody
@@ -55,6 +58,7 @@ public class MenuValueController extends BaseController {
 
 	/**
 	 * 跳转到添加页面
+	 * 
 	 * @param model
 	 * @return
 	 */
@@ -65,6 +69,7 @@ public class MenuValueController extends BaseController {
 
 	/**
 	 * 新增菜单权限值
+	 * 
 	 * @param menuValue
 	 * @param redirectAttributes
 	 * @return String
@@ -81,25 +86,27 @@ public class MenuValueController extends BaseController {
 
 	/**
 	 * 跳转到编辑页面
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(Long id, ModelMap model) {
-		
+
 		model.addAttribute("menuvalue", menuValueService.get(id));
 		return "/admin/menu_value/edit";
 	}
 
 	/**
 	 * 编辑保存
+	 * 
 	 * @param menuValue
 	 * @param redirectAttributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(MenuValue menuValue,RedirectAttributes redirectAttributes) {
+	public String update(MenuValue menuValue, RedirectAttributes redirectAttributes) {
 		MenuValue pmenuValue = menuValueService.get(menuValue.getId());
 		if (pmenuValue == null) {
 			return ERROR_VIEW;
@@ -114,6 +121,7 @@ public class MenuValueController extends BaseController {
 
 	/**
 	 * 分页查找菜单权限值列表
+	 * 
 	 * @param pageNo
 	 * @param model
 	 * @return String
@@ -126,6 +134,7 @@ public class MenuValueController extends BaseController {
 
 	/**
 	 * 删除菜单权限值
+	 * 
 	 * @param ids
 	 * @return
 	 */
@@ -137,8 +146,8 @@ public class MenuValueController extends BaseController {
 			for (Long id : ids) {
 				MenuValue menuValue = menuValueService.get(id);
 				List<Menu> menus = menuService.findMenuByMenuValueId(id);
-				if (menuValue != null && menus != null && menus.size()>0) {
-					return Message.error("该菜单权限值不能被删除",menuValue.getvName());
+				if (menuValue != null && menus != null && menus.size() > 0) {
+					return Message.error("该菜单权限值不能被删除", menuValue.getvName());
 				}
 				menuValues.add(menuValue);
 			}

@@ -1,19 +1,20 @@
 package com.zz.dao.admin.impl;
 
-
-import com.zz.dao.admin.MenuDao;
-import com.zz.model.Menu;
-import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
-import com.zz.model.basic.model.Page;
-import com.zz.model.vo.MenuMenuValue;
-import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
+import com.zz.dao.admin.MenuDao;
+import com.zz.model.admin.Menu;
+import com.zz.model.admin.vo.MenuMenuValue;
+import com.zz.model.basic.dao.base.impl.BaseDaoImpl;
+import com.zz.model.basic.model.Page;
+
 /**
  * 菜单持久层实现
+ * 
  * @Date 2014-12-29
  * @author 欧志辉
  * @version 1.0
@@ -29,7 +30,7 @@ public class MenuDaoImpl extends BaseDaoImpl<Menu, Long> implements MenuDao {
 
 	@Override
 	public Page<MenuMenuValue> findRootsForPage(int pageNo, int pageSize) {
-		
+
 		StringBuilder sqlSB = new StringBuilder("select m.*,mv.v_name from xx_menu m ");
 		sqlSB.append("left join xx_menu_value mv on m.menu_value = mv.id where m.parent is null ");
 		String sqlCount = "select count(*) from (" + sqlSB.toString() + ") t___";
@@ -37,7 +38,7 @@ public class MenuDaoImpl extends BaseDaoImpl<Menu, Long> implements MenuDao {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		return super.queryForPage(sqlSB.toString(), sqlCount, pageSize, pageNo, paramMap, MenuMenuValue.class);
 	}
-	
+
 	@Override
 	public List<MenuMenuValue> findChildren(Long parentId) {
 		if (parentId == null) {
@@ -55,12 +56,12 @@ public class MenuDaoImpl extends BaseDaoImpl<Menu, Long> implements MenuDao {
 		if (parentId == null) {
 			return null;
 		}
-		String sql ="select * from xx_menu where parent = :parentId";
+		String sql = "select * from xx_menu where parent = :parentId";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("parentId", parentId);
 		return super.query(sql, paramMap);
 	}
-	
+
 	@Override
 	public List<Menu> findMenuByMenuValueId(Long menuValueId) {
 		if (menuValueId == null) {
@@ -91,5 +92,5 @@ public class MenuDaoImpl extends BaseDaoImpl<Menu, Long> implements MenuDao {
 		sqlSB.append("from xx_menu m left join xx_menu_value mv on m.menu_value = mv.id ");
 		return super.query(sqlSB.toString(), MenuMenuValue.class);
 	}
-	
+
 }

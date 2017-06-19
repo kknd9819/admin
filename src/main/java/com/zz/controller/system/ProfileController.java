@@ -1,9 +1,7 @@
 package com.zz.controller.system;
 
+import javax.annotation.Resource;
 
-import com.zz.controller.BaseController;
-import com.zz.model.Admin;
-import com.zz.service.system.AdminService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -13,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
+import com.zz.controller.BaseController;
+import com.zz.model.admin.Admin;
+import com.zz.service.system.AdminService;
 
 /**
  * 个人资料controller
+ * 
  * @Date 2014-12-31
  * @author 欧志辉
  * @version 1.0
@@ -30,6 +31,7 @@ public class ProfileController extends BaseController {
 
 	/**
 	 * 验证当前密码
+	 * 
 	 * @param currentPassword
 	 * @return
 	 */
@@ -49,6 +51,7 @@ public class ProfileController extends BaseController {
 
 	/**
 	 * 跳转到修改页面
+	 * 
 	 * @param model
 	 * @return
 	 */
@@ -60,6 +63,7 @@ public class ProfileController extends BaseController {
 
 	/**
 	 * 更新
+	 * 
 	 * @param currentPassword
 	 * @param password
 	 * @param email

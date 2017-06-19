@@ -1,21 +1,28 @@
 package com.zz.service.system.impl;
 
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.zz.dao.admin.RoleAuthorityDao;
 import com.zz.dao.admin.RoleDao;
-import com.zz.model.Role;
-import com.zz.model.RoleAuthority;
+import com.zz.model.admin.Role;
+import com.zz.model.admin.RoleAuthority;
 import com.zz.model.basic.model.Page;
 import com.zz.model.basic.service.impl.BaseServiceImpl;
 import com.zz.service.system.RoleService;
 import com.zz.util.Pageable;
 
 import cn.shengyuan.tools.util.StringUtil;
-
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.util.*;
 
 /**
  * 角色服务层实现

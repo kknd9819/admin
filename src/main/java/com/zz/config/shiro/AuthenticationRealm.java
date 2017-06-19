@@ -20,8 +20,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import com.zz.model.Admin;
-import com.zz.model.vo.Principal;
+import com.zz.model.admin.Admin;
+import com.zz.model.admin.vo.Principal;
 import com.zz.service.system.AdminService;
 import com.zz.service.system.CaptchaService;
 import com.zz.util.Setting;
